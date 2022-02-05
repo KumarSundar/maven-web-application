@@ -42,5 +42,16 @@ sshagent(['1602e6ed-db23-4541-b999-870e15dd6334']) {
 }
 }
 }
-}  
 }//stage closing
+post{
+
+success{
+
+emailext body: 'Build is Over-Success!.', subject: 'devops', to: 'ganeshaws83@gmail.com'
+}
+failure{
+
+emailext body: 'Build is Over - Failure!.', subject: 'devops', to: 'ganeshaws83@gmail.com'
+}
+}
+} //pipeline closing
