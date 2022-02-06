@@ -22,12 +22,12 @@ stage('UploadArtifactIntoNexus')
 {
 sh "${mavenHome}/bin/mvn deploy"
 }
-stage('DeployAppIntoTomcatServer'){
+/** stage('DeployAppIntoTomcatServer'){
 
 sshagent(['1602e6ed-db23-4541-b999-870e15dd6334']) {
     sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.235.128.254:/opt/tomcat9/webapps"
 }
-}
+} **/ 
 stage('SendEmailNotification'){
 
 emailext body: 'Build is Over.', subject: 'Build is over', to: 'ganeshaws83@gmail.com'
