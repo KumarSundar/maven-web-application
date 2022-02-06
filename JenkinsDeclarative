@@ -35,13 +35,13 @@ steps{
 sh "mvn deploy"
 }
 }
-stage('DeployIntoTomcatServer'){
+/** stage('DeployIntoTomcatServer'){
 steps{
 sshagent(['1602e6ed-db23-4541-b999-870e15dd6334']) {
     sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@http://13.232.218.85:/opt/tomcat9/webapps"
 }
 }
-}
+} **/
 }//stage closing
 post{
 
